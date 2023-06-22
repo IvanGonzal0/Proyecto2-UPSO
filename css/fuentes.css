@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap");
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400; /* normal */
+}
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700; /* bold */
+}
+
+*{
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif ;
+    font-weight: 400;
+}
+
+/* html{
+    font-size: small;
+} */

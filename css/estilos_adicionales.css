@@ -1,0 +1,488 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap");
+
+/***********************************************
+
+ Autores: Tapia Ivan Gonzalo - Vanadía Matías
+
+************************************************/
+
+/* ORGANIZAR LAS DECLARACIONES EN BLOQUES*/
+
+/* ESTILOS GENERALES Y NORMALIZACION*/
+html {
+  font-size: 62.5%; /*porque el tamn equivale a 10px*/
+  font-family: var(--base--font);
+  color: var(--t);
+}
+
+/* MENU PRINCIPAL*/
+.main-menu {
+  width: var(--nav-width);
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+}
+
+/* CABECERA PRINCIPAL */
+.main-header {
+  height: var(--header-height);
+  width: 100%;
+}
+
+/* MAIN & BODY */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*box sizing toma el elemento de una caja y me mantiene siempre ese tamaño(no se agranda el margin ni el padding)*/
+  font-family: var(--base--font);
+}
+body {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* VARIABLES */
+:root {
+  /* PALETA DE COLORES */
+  --primary: #f0a21d;
+  --s: #f7e8cf;
+  --t: #30343f;
+  --c: #006126;
+
+  /* FUENTES */
+  --base--font: "Inter", "sans-serif";
+  --alternative-font: "Raleway", "sans-serif";
+
+  /* TAMAÑOS DE FUENTES */
+  --font-display: 4.6em;
+  --font-jumbo: 3.8em;
+  --font-xlarge: 3em;
+  --font-large: 2.4em;
+  --font-xmedium: 2em;
+  --font-medium: 1.8em;
+  --font-small: 1.6em;
+  --font-xsmall: 1.4em;
+  --fon-xxsmall: 1em;
+
+  /* MEDIDAS DE ELEMENTOS */
+  --nav-width: 250px;
+  --nav-height: 640px;
+  --header-height: 80px;
+}
+
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+main section {
+  padding: 0px;
+  background-color: var(--primary);
+}
+/*FIN DE ESTILOS GENERALES Y NORMALIZACION*/
+
+/* ESTILOS DE ... Ivan */
+
+/*HEADER*/
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--primary);
+}
+.main-header > img {
+  order: -7;
+  height: 93%;
+}
+.main-header > h1 {
+  font-family: var(--alternative-font);
+  font-size: var(--font-jumbo);
+  color: var(--s);
+}
+
+/* Campanita */
+.material-icons-outlined.notification-icon {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+.notification-counter {
+  border-radius: 10px;
+  border: 3px solid red;
+  background-color: red;
+  color: var(--s);
+}
+
+.material-icons-outlined.notification-icon:hover {
+  animation-name: campana;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+
+@keyframes campana {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(-45deg);
+  }
+  50% {
+    transform: rotateZ(45deg);
+  }
+  75% {
+    transform: rotateZ(-45deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+/* FIN HEADER */
+
+/* MENU NAVEGACION*/
+.main-menu {
+  position: absolute;
+  top: 80px;
+  height: var(--nav-height);
+  background-color: var(--s);
+  padding: 0;
+  overflow-y: auto;
+}
+.menu-group {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0px;
+  justify-content: space-between;
+  color: var(--t);
+  flex-wrap: wrap;
+}
+.menu-group > h2 {
+  font-family: var(--alternative-font);
+  font-size: var(--font-medium);
+  text-align: center;
+
+  border-top: 4px solid var(--t);
+  border-bottom: 0.3px solid var(--t);
+}
+
+.menu-text {
+  font-size: var(--font-xsmall);
+}
+
+.menu-group > a {
+  cursor: pointer;
+  transition: background 0.3s ease;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 10%;
+
+  display: inline-flex; /* Utilizamos inline-flex para que funcione en un elemento inline como <a> */
+  align-items: center; /* Alineación vertical de los elementos hijos */
+  justify-items: space-around;
+}
+.menu-group > a:hover {
+  background-color: var(--primary);
+}
+
+/*FIN MENU DE NAVEGACION*/
+
+/*OFERTAS EXCLUSIVAS*/
+
+.exclusive-offers {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-left: var(--nav-width);
+  width: 100%;
+  height: 500px;
+  overflow-y: scroll;
+  order: -3;
+  background-color: var(--s);
+}
+.art-offer {
+  background-color: var(--s);
+}
+.art-details {
+  background-color: var(--primary);
+}
+
+/*FIN OFERTAS EXCLUSIVAS*/
+
+/*ACTIVIDAD RECIENTE*/
+
+.activity {
+  height: 140px;
+  width: 100%;
+  padding: 0;
+  margin-left: var(--nav-width);
+  padding-bottom: 0.1%;
+  border-bottom: 1px solid var(--s);
+  order: -4;
+}
+.activity > h2 {
+  background-color: var(--t);
+  color: var(--s);
+  text-align: center;
+}
+.activity table {
+  width: 100%;
+  text-indent: 0%;
+  border-spacing: 0px;
+}
+
+.activity table thead th {
+  background-color: var(--primary); /* Estilo para filas pares */
+  height: 25px;
+  font-family: var(--alternative-font);
+  font-size: var(--font-xsmall);
+}
+.activity table tbody tr {
+  font-family: var(--alternative-font);
+  font-size: var(--font-xxsmall);
+}
+.activity table tbody tr:nth-child(even) {
+  background-color: var(--primary); /* Estilo para filas pares */
+  transition: background 0.3s ease;
+}
+
+.activity table tbody tr:nth-child(odd) {
+  background-color: var(--s); /* Estilo para filas impares */
+  transition: background 0.3s ease;
+}
+.activity table tbody tr:nth-child(odd):hover {
+  background-color: var(--primary);
+}
+
+/*FIN ACTIVIDAD*/
+
+/* TARJETAS */
+
+.cards {
+  width: 75%;
+  background-color: var(--primary);
+  border-bottom: 1px solid var(--s);
+  height: 220px;
+  display: flexbox;
+}
+
+.card {
+  display: inline-block;
+  width: 180px;
+  height: 100px;
+  left: 100px;
+  padding-left: 10px;
+  padding-top: 5px;
+  /* display: inline-block; */
+  justify-self: center;
+  color: var(--s);
+  text-align: initial;
+  opacity: 0.5;
+  transition: opacity 0.3s, transform 0.3s, translateX 0.5s;
+  border-radius: 5px;
+}
+
+.card:hover {
+  /* justify-items: space-between; */
+  opacity: 1.1;
+  transform: scale(1.4);
+  translate: 0;
+  cursor: pointer;
+}
+
+.card:nth-of-type(1) {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.card:nth-of-type(2) {
+  /* background-image: url(../img/visa-debit.png); */
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.card:nth-of-type(3) {
+  /* background-image: url(../img/mastercard-credit.png); */
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+article.card {
+  background-position: center;
+  background-color: var(--t);
+  /* content: normal; */
+}
+
+.card > img {
+  margin-top: 20px;
+  width: 50px;
+  height: 30px;
+  border-radius: 3px;
+}
+.cards > h2 {
+  background-color: var(--t);
+  color: var(--s);
+  text-align: center;
+}
+
+/*FIN TARJETAS*/
+/* CONTROL DE STOCK */
+.stock-control {
+  display: flexbox;
+  width: 25%;
+  text-align: center;
+  border-bottom: 1px solid var(--s);
+  border-right: 1px solid var(--t);
+  order: -2;
+}
+.stock-alert {
+  /* display: flex; */
+  text-align: center;
+  width: 80px;
+  height: 60px;
+  margin-left: 72.5px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.stock-control > h2 {
+  background-color: var(--t);
+  color: var(--s);
+  width: 100%;
+}
+
+.stock-alert[data-alert-level="high"] {
+  background-color: red;
+  color: var(--s);
+  opacity: 0.4;
+}
+
+.stock-alert[data-alert-level="medium"] {
+  background-color: yellow;
+  opacity: 0.4;
+}
+
+.stock-alert[data-alert-level="low"] {
+  background-color: green;
+  color: var(--s);
+  opacity: 0.4;
+}
+
+/* FIN CONTROL STOCK */
+
+/* COTIZACION DOLAR */
+.currency {
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  padding: 10px;
+  background-color: var(--s);
+  height: 135px;
+  width: 100%;
+}
+
+.currency h2 {
+  font-size: var(--font-large);
+  margin-bottom: 10px;
+}
+
+.currency span {
+  font-weight: bold;
+}
+
+.loading {
+  width: 100%;
+  display: inline-flex;
+  flex-flow: row nowrap;
+}
+
+.currency > p {
+  font-size: var(--font-medium);
+}
+
+.loading {
+  justify-content: center;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.loading-item {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: lightblue;
+  animation: pulse 1s infinite alternate;
+  margin: 0 5px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* SECCION DE CONTACTO */
+
+.contact-support {
+  position: fixed;
+  bottom: 10px;
+  right: calc((100% - 940px) / 2);
+  background-color: var(--c);
+  color: var(--s);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s, transform 0.3s, translateX 0.5s;
+  cursor: pointer;
+  display: flex;
+  vertical-align: baseline;
+  width: fit-content;
+  font-size: var(--font-xxsmall);
+}
+
+.contact-support:hover {
+  width: 120px;
+  justify-items: space-between;
+  opacity: 0.8;
+  transform: scale(1.2);
+  translate: -5px;
+}
+
+.contact-support .material-icons-outlined {
+  font-size: var(--font-small);
+  vertical-align: middle;
+}
+
+.contact-support .contact-text {
+  display: none;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+.contact-support:hover .contact-text {
+  display: inline;
+}
+
+/* FIN SECCION DE CONTACTO */
+/*FOOTER*/
+.main-footer {
+  display: inline-flex;
+  width: 100%;
+  height: 55px;
+  background-color: var(--primary);
+  align-items: end;
+  justify-content: center;
+}
+/* ESTILOS DE ...  */
