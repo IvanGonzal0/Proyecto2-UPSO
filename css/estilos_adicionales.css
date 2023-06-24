@@ -1,3 +1,4 @@
+/* IMPORTAMOS LAS FUENTES DESDE GOOGLE */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap");
 
 /***********************************************
@@ -10,51 +11,17 @@
 
 /* ESTILOS GENERALES Y NORMALIZACION*/
 html {
-  font-size: 62.5%; /*porque el tamn equivale a 10px*/
+  font-size: 62.5%; /* normalizacion 1em = 10px */
   font-family: var(--base--font);
-  color: var(--t);
+  color: var(--text);
 }
-
-/* MENU PRINCIPAL*/
-.main-menu {
-  width: var(--nav-width);
-  padding: 0;
-  margin: 0;
-  overflow-y: scroll;
-}
-
-/* CABECERA PRINCIPAL */
-.main-header {
-  height: var(--header-height);
-  width: 100%;
-}
-
-/* MAIN & BODY */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /*box sizing toma el elemento de una caja y me mantiene siempre ese tamaño(no se agranda el margin ni el padding)*/
-  font-family: var(--base--font);
-}
-body {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-main {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 /* VARIABLES */
 :root {
   /* PALETA DE COLORES */
   --primary: #f0a21d;
-  --s: #f7e8cf;
-  --t: #30343f;
-  --c: #006126;
+  --secondary: #f7e8cf;
+  --text: #30343f;
+  --accent: #006126;
 
   /* FUENTES */
   --base--font: "Inter", "sans-serif";
@@ -63,8 +30,6 @@ main {
   /* TAMAÑOS DE FUENTES */
   --font-display: 4.6em;
   --font-jumbo: 3.8em;
-  --font-xlarge: 3em;
-  --font-large: 2.5em;
   --font-xmedium: 2em;
   --font-medium: 1.8em;
   --font-small: 1.6em;
@@ -77,22 +42,38 @@ main {
   --header-height: 80px;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*box sizing toma el elemento de una caja y me mantiene siempre ese tamaño por defecto*/
+}
+body {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: var(--primary);
+}
+
 a {
   text-decoration: none;
   font-family: inherit;
   color: inherit;
 }
-
-main section {
-  padding: 0px;
-  background-color: var(--primary);
-}
 /*FIN DE ESTILOS GENERALES Y NORMALIZACION*/
 
 /* ESTILOS DE ... Ivan */
 
-/*HEADER*/
+/* CABECERA PRINCIPAL */
+
 .main-header {
+  height: var(--header-height);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -105,7 +86,7 @@ main section {
 .main-header > h1 {
   font-family: var(--alternative-font);
   font-size: var(--font-display);
-  color: var(--s);
+  color: var(--secondary);
   opacity: 0;
   animation: atenuar 1s ease-in-out forwards;
 }
@@ -121,7 +102,7 @@ main section {
   }
 }
 
-/* Campanita */
+/* CAMPANITA */
 .material-icons-outlined.notification-icon {
   display: inline-block;
   transition: transform 0.3s ease-in-out;
@@ -130,7 +111,7 @@ main section {
   border-radius: 10px;
   border: 3px solid red;
   background-color: red;
-  color: var(--s);
+  color: var(--secondary);
 }
 
 .material-icons-outlined.notification-icon:hover {
@@ -162,11 +143,13 @@ main section {
 
 /* MENU NAVEGACION*/
 .main-menu {
+  width: var(--nav-width);
   position: absolute;
   top: 80px;
   height: var(--nav-height);
-  background-color: var(--s);
+  background-color: var(--secondary);
   padding: 0;
+  margin: 0;
   overflow-y: auto;
 }
 .menu-group {
@@ -174,7 +157,7 @@ main section {
   flex-direction: column;
   padding-top: 0px;
   justify-content: space-between;
-  color: var(--t);
+  color: var(--text);
   flex-wrap: wrap;
 }
 .menu-group > h2 {
@@ -182,8 +165,8 @@ main section {
   font-size: var(--font-medium);
   text-align: center;
 
-  border-top: 4px solid var(--t);
-  border-bottom: 0.3px solid var(--t);
+  border-top: 4px solid var(--text);
+  border-bottom: 0.3px solid var(--text);
 }
 
 .menu-text {
@@ -218,11 +201,11 @@ main section {
   height: 500px;
   overflow-y: scroll;
   order: -3;
-  background-color: var(--s);
+  background-color: var(--secondary);
   padding: 0px;
 }
 
-/* Estilos para el titulo h2 de la sección*/
+/* ESTILOS PARA EL TITULO H2 */
 .exclusive-offers > h2 {
   font-family: var(--alternative-font);
   font-size: var(--font-jumbo);
@@ -231,19 +214,16 @@ main section {
   animation: atenuar 1s ease-in-out forwards;
   color: var(--primary);
 }
-/* Estilos para cada artículo */
+/* ESTILOS PARA CADA ARTICULO */
 .art-offer {
   display: grid;
-  grid-template-columns: 20% 50% 30%;
+  grid-template-columns: 20% 50% 30%; /*aca defino el grid como va a estar compuesto, dividido, y cuanto ocupara cada columna en % de su contenedor*/
   grid-gap: 10px;
   width: 100%;
   padding: 20px;
-  background-color: var(--s);
+  background-color: var(--secondary);
   border-top: 1px solid var(--primary);
-  /*border-radius: 5px;*/
 }
-
-/* Estilos para el encabezado del artículo */
 .art-offer header {
   grid-column: 3;
   grid-row: 1 / span 2;
@@ -255,12 +235,10 @@ main section {
   text-align: center;
   justify-self: start;
 }
-
 .art-offer h3 {
   font-size: var(--font-medium);
   margin-bottom: 5px;
 }
-
 .art-offer p[data-art-old-price] {
   text-decoration: underline;
   color: #999;
@@ -268,7 +246,6 @@ main section {
   margin-bottom: 5px;
   animation: rotacion 1s;
 }
-
 @keyframes rotacion {
   0% {
     transform: rotate(0deg);
@@ -277,7 +254,6 @@ main section {
     transform: rotate(360deg);
   }
 }
-/* Estilos para la imagen del artículo */
 .art-offer img {
   grid-column: 2;
   grid-row: 1 / span 2;
@@ -285,8 +261,6 @@ main section {
   height: 100%;
   align-self: end;
 }
-
-/* Estilos para la sección de detalles del artículo */
 .art-offer {
   grid-column: 1;
   grid-row: 1;
@@ -296,27 +270,28 @@ main section {
   grid-column: 1;
   grid-row: 1 /3;
   align-self: center;
-  background-color: var(--s);
-}
-.art-offer h4 {
-  font-size: var(--fon-xxsmall);
+  background-color: var(--secondary);
 }
 
-/* Estilos para el pie de página del artículo */
+.art-offer h4 {
+  font-size: var(--font-xsmall);
+}
+
 .art-offer footer {
   grid-column: 3;
   grid-row: 1 / span 3;
   text-align: center;
   justify-self: start;
   align-self: center;
-  font-size: var(--font-xxsmall);
   width: 100%;
   justify-content: start;
 }
-
+.art-offer > footer > p {
+  font-size: var(--font-xxsmall);
+}
 .art-offer button {
-  background-color: var(--c);
-  color: var(--s);
+  background-color: var(--accent);
+  color: var(--secondary);
   border: none;
   margin-top: 15px;
   padding: 8px 16px;
@@ -327,7 +302,11 @@ main section {
 
 .art-offer button:hover {
   background-color: var(--primary);
-  color: var(--t);
+  color: var(--text);
+}
+.art-offer button:active {
+  background-color: var(--accent);
+  color: var(--secondary);
 }
 /*FIN OFERTAS EXCLUSIVAS*/
 
@@ -339,12 +318,12 @@ main section {
   padding: 0;
   margin-left: var(--nav-width);
   padding-bottom: 0.1%;
-  border-bottom: 1px solid var(--s);
+  border-bottom: 1px solid var(--secondary);
   order: -4;
 }
 .activity > h2 {
-  background-color: var(--t);
-  color: var(--s);
+  background-color: var(--text);
+  color: var(--secondary);
   text-align: center;
 }
 .activity table {
@@ -354,7 +333,7 @@ main section {
 }
 
 .activity table thead th {
-  background-color: var(--primary); /* Estilo para filas pares */
+  background-color: var(--primary);
   height: 25px;
   font-family: var(--alternative-font);
   font-size: var(--font-xsmall);
@@ -364,12 +343,12 @@ main section {
   font-size: var(--font-xxsmall);
 }
 .activity table tbody tr:nth-child(even) {
-  background-color: var(--primary); /* Estilo para filas pares */
+  background-color: var(--primary); /* ESTILO PARA FILAS PARES */
   transition: background 0.3s ease;
 }
 
 .activity table tbody tr:nth-child(odd) {
-  background-color: var(--s); /* Estilo para filas impares */
+  background-color: var(--secondary); /* ESTILO PARA FILAS IMPARES */
   transition: background 0.3s ease;
 }
 .activity table tbody tr:nth-child(odd):hover {
@@ -383,7 +362,7 @@ main section {
 .cards {
   width: 75%;
   background-color: var(--primary);
-  border-bottom: 1px solid var(--s);
+  border-bottom: 1px solid var(--secondary);
   height: 220px;
   display: flexbox;
   overflow-y: auto;
@@ -397,9 +376,8 @@ main section {
   left: 100px;
   padding-left: 10px;
   padding-top: 5px;
-  /* display: inline-block; */
   justify-self: center;
-  color: var(--s);
+  color: var(--secondary);
   text-align: initial;
   opacity: 0.5;
   transition: opacity 0.3s, transform 0.3s, translateX 0.5s;
@@ -407,7 +385,6 @@ main section {
 }
 
 .card:hover {
-  /* justify-items: space-between; */
   opacity: 1.1;
   transform: scale(1.4);
   translate: 0;
@@ -431,8 +408,7 @@ main section {
 
 article.card {
   background-position: center;
-  background-color: var(--t);
-  /* content: normal; */
+  background-color: var(--text);
 }
 
 .card > img {
@@ -442,23 +418,24 @@ article.card {
   border-radius: 3px;
 }
 .cards > h2 {
-  background-color: var(--t);
-  color: var(--s);
+  background-color: var(--text);
+  color: var(--secondary);
   text-align: center;
 }
 
 /*FIN TARJETAS*/
+
 /* CONTROL DE STOCK */
+
 .stock-control {
   display: flexbox;
   width: 25%;
   text-align: center;
-  border-bottom: 1px solid var(--s);
-  border-right: 1px solid var(--t);
+  border-bottom: 1px solid var(--secondary);
+  border-right: 1px solid var(--text);
   order: -2;
 }
 .stock-alert {
-  /* display: flex; */
   text-align: center;
   width: 80px;
   height: 60px;
@@ -470,14 +447,14 @@ article.card {
 }
 
 .stock-control > h2 {
-  background-color: var(--t);
-  color: var(--s);
+  background-color: var(--text);
+  color: var(--secondary);
   width: 100%;
 }
 
 .stock-alert[data-alert-level="high"] {
   background-color: rgb(231, 69, 40);
-  color: var(--s);
+  color: var(--secondary);
   opacity: 0.4;
 }
 .stock-alert[data-alert-level="medium"] {
@@ -485,23 +462,25 @@ article.card {
   opacity: 0.4;
 }
 .stock-alert[data-alert-level="low"] {
-  background-color: var(--c);
-  color: var(--s);
+  background-color: var(--accent);
+  color: var(--secondary);
   opacity: 0.4;
 }
 .stock-alert:hover {
   opacity: 0.9;
 }
+
 /* FIN CONTROL STOCK */
 
-/* COTIZACION DOLAR */
+/* COTIZACIÓN DOLAR */
+
 .currency {
   flex-direction: column;
   align-items: stretch;
   text-align: center;
   padding: 10px;
-  background-color: var(--s);
-  height: 130px;
+  background-color: var(--secondary);
+  height: 120px;
   width: 100%;
 }
 
@@ -527,7 +506,7 @@ article.card {
 .loading {
   justify-content: center;
   align-self: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .loading-item {
@@ -550,14 +529,17 @@ article.card {
     transform: scale(1);
   }
 }
+
+/* FIN COTIZACIÓN DOLAR*/
+
 /* SECCION DE CONTACTO */
 
 .contact-support {
   position: fixed;
   bottom: 10px;
   right: calc((100% - 940px) / 2);
-  background-color: var(--c);
-  color: var(--s);
+  background-color: var(--accent);
+  color: var(--secondary);
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -593,13 +575,17 @@ article.card {
 }
 
 /* FIN SECCION DE CONTACTO */
+
 /*FOOTER*/
+
 .main-footer {
   display: inline-flex;
   width: 100%;
-  height: 55px;
+  height: var(--header-height);
   background-color: var(--primary);
   align-items: end;
   justify-content: center;
 }
+
+/* FIN FOOTER */
 /* ESTILOS DE ...  */
