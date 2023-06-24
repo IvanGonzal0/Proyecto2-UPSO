@@ -64,6 +64,7 @@ main {
   --font-display: 4.6em;
   --font-jumbo: 3.8em;
   --font-xlarge: 3em;
+  --font-large: 2.5em;
   --font-xmedium: 2em;
   --font-medium: 1.8em;
   --font-small: 1.6em;
@@ -103,8 +104,21 @@ main section {
 }
 .main-header > h1 {
   font-family: var(--alternative-font);
-  font-size: var(--font-jumbo);
+  font-size: var(--font-display);
   color: var(--s);
+  opacity: 0;
+  animation: atenuar 1s ease-in-out forwards;
+}
+
+@keyframes atenuar {
+  0% {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Campanita */
@@ -205,29 +219,18 @@ main section {
   overflow-y: scroll;
   order: -3;
   background-color: var(--s);
-  padding: 0;
+  padding: 0px;
 }
 
-/* .art-details {
-  background-color: var(--primary);
-  width: 50%;
-  height: 25%;
-  order: 1;
-} */
-.art-offer > header {
-  height: 30%;
+/* Estilos para el titulo h2 de la sección*/
+.exclusive-offers > h2 {
+  font-family: var(--alternative-font);
+  font-size: var(--font-jumbo);
+  text-align: center;
+  opacity: 0;
+  animation: atenuar 1s ease-in-out forwards;
+  color: var(--primary);
 }
-.art-offer > img {
-  width: 300px;
-}
-.art-offer > footer {
-  width: 25%;
-  height: 25%;
-
-  align-content: space-around;
-  justify-content: space-around;
-}
-
 /* Estilos para cada artículo */
 .art-offer {
   display: grid;
@@ -236,8 +239,8 @@ main section {
   width: 100%;
   padding: 20px;
   background-color: var(--s);
-  border: 1px solid var(--t);
-  border-radius: 5px;
+  border-top: 1px solid var(--primary);
+  /*border-radius: 5px;*/
 }
 
 /* Estilos para el encabezado del artículo */
@@ -259,11 +262,21 @@ main section {
 }
 
 .art-offer p[data-art-old-price] {
-  text-decoration: line-through;
+  text-decoration: underline;
   color: #999;
+  font-size: var(--font-medium);
   margin-bottom: 5px;
+  animation: rotacion 1s;
 }
 
+@keyframes rotacion {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* Estilos para la imagen del artículo */
 .art-offer img {
   grid-column: 2;
@@ -313,7 +326,8 @@ main section {
 }
 
 .art-offer button:hover {
-  background-color: rgb(60, 177, 60);
+  background-color: var(--primary);
+  color: var(--t);
 }
 /*FIN OFERTAS EXCLUSIVAS*/
 
@@ -372,10 +386,12 @@ main section {
   border-bottom: 1px solid var(--s);
   height: 220px;
   display: flexbox;
+  overflow-y: auto;
 }
 
 .card {
   display: inline-block;
+  flex-wrap: wrap;
   width: 180px;
   height: 100px;
   left: 100px;
@@ -460,20 +476,16 @@ article.card {
 }
 
 .stock-alert[data-alert-level="high"] {
-  background-color: red;
+  background-color: rgb(231, 69, 40);
   color: var(--s);
   opacity: 0.4;
 }
-.stock-alert[data-alert-level="high"]:hover {
-  opacity: 0.9;
-}
-
 .stock-alert[data-alert-level="medium"] {
-  background-color: yellow;
+  background-color: rgb(228, 224, 31);
   opacity: 0.4;
 }
 .stock-alert[data-alert-level="low"] {
-  background-color: green;
+  background-color: var(--c);
   color: var(--s);
   opacity: 0.4;
 }
@@ -489,12 +501,12 @@ article.card {
   text-align: center;
   padding: 10px;
   background-color: var(--s);
-  height: 135px;
+  height: 130px;
   width: 100%;
 }
 
-.currency h2 {
-  font-size: var(--font-large);
+.currency > h2 {
+  font-size: var(--font-xmedium);
   margin-bottom: 10px;
 }
 
@@ -509,7 +521,7 @@ article.card {
 }
 
 .currency > p {
-  font-size: var(--font-medium);
+  font-size: var(--font-small);
 }
 
 .loading {
