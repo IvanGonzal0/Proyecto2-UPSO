@@ -11,7 +11,7 @@
 
 /* ESTILOS GENERALES Y NORMALIZACION*/
 html {
-  font-size: 62.5%; /* normalizacion 1em = 10px */
+  font-size: 62.5%; /* normalizacion para que 1em = 10px */
   font-family: var(--base--font);
   color: var(--text);
 }
@@ -25,7 +25,7 @@ html {
 
   /* FUENTES */
   --base--font: "Inter", "sans-serif";
-  --alternative-font: "Raleway", "sans-serif";
+  --alternative-font: "Raleway", "Times New Roman";
 
   /* TAMAÑOS DE FUENTES */
   --font-display: 4.6em;
@@ -45,7 +45,7 @@ html {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /*box sizing toma el elemento de una caja y me mantiene siempre ese tamaño por defecto*/
+  box-sizing: border-box;
 }
 body {
   display: flex;
@@ -67,7 +67,7 @@ a {
 }
 /*FIN DE ESTILOS GENERALES Y NORMALIZACION*/
 
-/* ESTILOS DE ... Ivan */
+/* ESTILOS DE ... */
 
 /* CABECERA PRINCIPAL */
 
@@ -193,7 +193,6 @@ a {
 /*OFERTAS EXCLUSIVAS*/
 
 .exclusive-offers {
-  display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   margin-left: var(--nav-width);
@@ -241,8 +240,9 @@ a {
 }
 .art-offer p[data-art-old-price] {
   text-decoration: underline;
-  color: #999;
-  font-size: var(--font-medium);
+  color: var(--text);
+  font-size: var(--font-xmedium);
+  font-weight: bold;
   margin-bottom: 5px;
   animation: rotacion 1s;
 }
@@ -296,8 +296,10 @@ a {
   margin-top: 15px;
   padding: 8px 16px;
   font-size: var(--font-xmedium);
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .art-offer button:hover {
@@ -339,6 +341,7 @@ a {
   font-size: var(--font-xsmall);
 }
 .activity table tbody tr {
+  text-align: center;
   font-family: var(--alternative-font);
   font-size: var(--font-xxsmall);
 }
@@ -458,7 +461,8 @@ article.card {
   opacity: 0.4;
 }
 .stock-alert[data-alert-level="medium"] {
-  background-color: rgb(228, 224, 31);
+  background-color: var(--secondary);
+  color: var(--text);
   opacity: 0.4;
 }
 .stock-alert[data-alert-level="low"] {
@@ -473,7 +477,6 @@ article.card {
 /* FIN CONTROL STOCK */
 
 /* COTIZACIÓN DOLAR */
-
 .currency {
   flex-direction: column;
   align-items: stretch;
@@ -514,11 +517,11 @@ article.card {
   height: 15px;
   border-radius: 50%;
   background-color: lightblue;
-  animation: pulse 1s infinite alternate;
+  animation: pulso 1s infinite alternate;
   margin: 0 5px;
 }
 
-@keyframes pulse {
+@keyframes pulso {
   0% {
     transform: scale(1);
   }
@@ -545,31 +548,22 @@ article.card {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: opacity 0.3s, transform 0.3s, translateX 0.5s;
   cursor: pointer;
-  display: flex;
-  vertical-align: baseline;
-  width: fit-content;
-  font-size: var(--font-xxsmall);
 }
-
 .contact-support:hover {
   width: 120px;
-  justify-items: space-between;
   opacity: 0.8;
   transform: scale(1.2);
   translate: -5px;
 }
-
 .contact-support .material-icons-outlined {
   font-size: var(--font-small);
   vertical-align: middle;
 }
-
 .contact-support .contact-text {
   display: none;
   margin-left: 12px;
   vertical-align: middle;
 }
-
 .contact-support:hover .contact-text {
   display: inline;
 }
@@ -581,11 +575,10 @@ article.card {
 .main-footer {
   display: inline-flex;
   width: 100%;
-  height: var(--header-height);
+  height: 60px;
   background-color: var(--primary);
   align-items: end;
   justify-content: center;
 }
 
 /* FIN FOOTER */
-/* ESTILOS DE ...  */
